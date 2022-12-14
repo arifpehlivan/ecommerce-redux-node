@@ -2,6 +2,7 @@ import './navbar.scss'
 import { Link } from "react-router-dom";
 // import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import AddShoppingCartRoundedIcon from '@mui/icons-material/AddShoppingCartRounded';
+import { Badge } from '@mui/material';
 
 const Navbar = () => {
     return (
@@ -14,7 +15,10 @@ const Navbar = () => {
             <div className="rightSide">
                 <div className="shoppingCart">
                     <Link to="/shoppingcart">
-                        <AddShoppingCartRoundedIcon style={{ cursor: "pointer" }} />
+                        <Badge badgeContent={0} color="primary">
+                            <AddShoppingCartRoundedIcon style={{ cursor: "pointer" }} />
+                        </Badge>
+
                     </Link>
                 </div>
                 <div className="buttons">
