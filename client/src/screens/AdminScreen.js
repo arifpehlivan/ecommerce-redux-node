@@ -1,13 +1,13 @@
 import React from 'react'
-import Navbar from '../components/navbar/Navbar'
-import Products from '../components/products/Products'
+import AdminNavbar from '../components/admin/adminNavbar/AdminNavbar'
+import ProductList from '../components/admin/productList/ProductList'
 
 const AdminScreen = () => {
     return (
         <div>
-            <Navbar/>
+            <AdminNavbar/>
             <div>
-                <Products/>
+                <ProductList/>
             </div>
         </div>
     )

@@ -3,6 +3,7 @@ import {
   RouterProvider,
 
 } from "react-router-dom";
+import AddProduct from "./components/admin/addproduct/AddProduct";
 import AdminScreen from "./screens/AdminScreen";
 import HomeScreen from "./screens/HomeScreen";
 
@@ -15,6 +16,10 @@ function App() {
     {
       path: "/admin",
       element: <AdminScreen />,
+    },
+    {
+      path: "/admin/addproduct",
+      element: <AddProduct/>,
     }
   ]);
   return (
