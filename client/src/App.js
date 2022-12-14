@@ -1,8 +1,25 @@
+import {
+  createBrowserRouter,
+  RouterProvider,
+
+} from "react-router-dom";
+import AdminScreen from "./screens/AdminScreen";
+import HomeScreen from "./screens/HomeScreen";
 
 function App() {
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <HomeScreen />
+    },
+    {
+      path: "/admin",
+      element: <AdminScreen />,
+    }
+  ]);
   return (
-    <div className="App">
-      <h1>Hello World</h1>
+    <div>
+      <RouterProvider router={router} />
     </div>
   );
 }
