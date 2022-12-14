@@ -5,6 +5,7 @@ import {
 } from "react-router-dom";
 import AddProduct from "./components/admin/addproduct/AddProduct";
 import Orders from "./components/admin/orders/Orders";
+import ShoppingCart from "./components/shoppingCart/ShoppingCart";
 import AdminScreen from "./screens/AdminScreen";
 import HomeScreen from "./screens/HomeScreen";
 
@@ -13,6 +14,10 @@ function App() {
     {
       path: "/",
       element: <HomeScreen />
+    },
+    {
+      path: "/shoppingCart",
+      element: <ShoppingCart />
     },
     {
       path: "/admin",

@@ -13,7 +13,9 @@ const Navbar = () => {
             </div>
             <div className="rightSide">
                 <div className="shoppingCart">
-                    <AddShoppingCartRoundedIcon style={{ cursor: "pointer" }} />
+                    <Link to="/shoppingcart">
+                        <AddShoppingCartRoundedIcon style={{ cursor: "pointer" }} />
+                    </Link>
                 </div>
                 <div className="buttons">
                     <Link to="/admin">Admin</Link>
