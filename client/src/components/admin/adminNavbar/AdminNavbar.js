@@ -17,6 +17,9 @@ const AdminNavbar = () => {
                     <button>
                         <Link to="/admin">List Prodcuts</Link>
                     </button>
+                    <button>
+                        <Link to="/admin/orders">Orders</Link>
+                    </button>
                 </div>
             </div>
         </div>
