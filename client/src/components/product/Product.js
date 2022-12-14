@@ -13,7 +13,6 @@ const Product = ({ item }) => {
                     <div className="productPrice">{item.price}</div>
                     <button>Add To Cart</button>
                 </div>
-
             </div>
         </div>
     )

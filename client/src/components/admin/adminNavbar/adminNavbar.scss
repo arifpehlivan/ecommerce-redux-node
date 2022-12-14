@@ -22,6 +22,12 @@
         padding-right: 30px;
 
         .buttons {
+            button{
+                border: none;
+                border-radius: 5px;
+                padding: 10px;
+                margin-right: 10px;
+            }
             a {
                 text-decoration: none;
                 color: black;
