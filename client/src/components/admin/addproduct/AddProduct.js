@@ -1,7 +1,9 @@
+import { useSelector } from 'react-redux'
 import AdminNavbar from '../adminNavbar/AdminNavbar'
 import './addProduct.scss'
 
 const AddProduct = () => {
+    const {items,status} = useSelector(state => state.products);
     return (
         <>
             <AdminNavbar />
