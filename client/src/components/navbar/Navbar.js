@@ -16,9 +16,8 @@ const Navbar = () => {
                 <div className="shoppingCart">
                     <Link to="/shoppingcart">
                         <Badge badgeContent={0} color="primary">
-                            <AddShoppingCartRoundedIcon style={{ cursor: "pointer" }} />
+                            <AddShoppingCartRoundedIcon style={{ cursor: "pointer" ,color: "black"}} />
                         </Badge>
-
                     </Link>
                 </div>
                 <div className="buttons">
