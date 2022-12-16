@@ -16,7 +16,7 @@ const Product = ({ item }) => {
                 </div>
                 <div className="productDesc">{item.desc}</div>
                 <div className="productBottom">
-                    <div className="productPrice">{item.price}</div>
+                    <div className="productPrice">$ {item.price}</div>
                     <button onClick={() => handleAddCart(item)}>Add To Cart</button>
                 </div>
             </div>

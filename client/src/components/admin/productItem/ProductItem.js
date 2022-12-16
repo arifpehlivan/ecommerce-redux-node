@@ -10,7 +10,7 @@ const ProductItem = ({ item }) => {
                 </div>
                 <div className="productItemDesc">{item.desc}</div>
                 <div className="productItemBottom">
-                    <div className="productItemPrice">{item.price}</div>
+                    <div className="productItemPrice">$ {item.price}</div>
                     <div className="productItemButtons">
                         <button>Delete Product</button>
                         <button>Discount</button>
