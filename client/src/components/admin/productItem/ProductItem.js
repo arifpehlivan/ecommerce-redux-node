@@ -1,6 +1,13 @@
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteProduct } from '../../../features/productSlice';
 import './productItem.scss'
 
 const ProductItem = ({ item }) => {
+    const product = useSelector((state) => state.items);
+    const dispatch = useDispatch();
+    const handleDeleteProduct = (item) => {
+        dispatch(deleteProduct(item))
+    }
     return (
         <div className='productItem'>
             <div key={item.id}>
@@ -12,7 +19,7 @@ const ProductItem = ({ item }) => {
                 <div className="productItemBottom">
                     <div className="productItemPrice">$ {item.price}</div>
                     <div className="productItemButtons">
-                        <button>Delete Product</button>
+                        <button onClick={() => handleDeleteProduct(item.id)}>Delete Product</button>
                         <button>Discount</button>
                     </div>
                 </div>
