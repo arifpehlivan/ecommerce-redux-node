@@ -1,14 +1,10 @@
 import { useSelector } from 'react-redux'
-import AdminNavbar from '../adminNavbar/AdminNavbar'
 import './addProduct.scss'
 
 const AddProduct = () => {
     const {items,status} = useSelector(state => state.products);
-    return (
-        <>
-            <AdminNavbar />
-            <div className='addProduct'>
-            
+    return (  
+            <div className='addProduct'> 
                 <div className="form">
                     
                     <form>
@@ -22,8 +18,6 @@ const AddProduct = () => {
                     </form>
                 </div>
             </div>
-        </>
-
     )
 }
 

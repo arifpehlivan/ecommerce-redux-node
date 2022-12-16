@@ -1,35 +1,67 @@
 import {
   createBrowserRouter,
   RouterProvider,
-
 } from "react-router-dom";
 import AddProduct from "./components/admin/addproduct/AddProduct";
+import AdminNavbar from "./components/admin/adminNavbar/AdminNavbar";
 import Orders from "./components/admin/orders/Orders";
+import Navbar from "./components/navbar/Navbar";
 import ShoppingCart from "./components/shoppingCart/ShoppingCart";
 import AdminScreen from "./screens/AdminScreen";
 import HomeScreen from "./screens/HomeScreen";
 
 function App() {
+  // const Layout = () => {
+  //   return (
+  //     <Navbar />
+  //   )
+  // }
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <HomeScreen />
+      element: (
+        <>
+          <Navbar />
+          <HomeScreen />
+        </>
+      ),
+
     },
     {
       path: "/shoppingCart",
-      element: <ShoppingCart />
+      element: (
+        <>
+          <Navbar />
+          <ShoppingCart />
+        </>
+      )
     },
     {
       path: "/admin",
-      element: <AdminScreen />,
+      element: (
+        <>
+          <AdminNavbar />
+          <AdminScreen />
+        </>
+      ),
     },
     {
       path: "/admin/addproduct",
-      element: <AddProduct/>,
+      element: (
+        <>
+          <AdminNavbar />
+          <AddProduct />
+        </>
+      ) ,
     },
     {
       path: "/admin/orders",
-      element: <Orders/>,
+      element: (
+        <>
+          <AdminNavbar />
+          <Orders />
+        </>
+      ) ,
     }
   ]);
   return (
