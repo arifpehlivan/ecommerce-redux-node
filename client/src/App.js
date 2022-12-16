@@ -5,24 +5,19 @@ import {
 import AddProduct from "./components/admin/addproduct/AddProduct";
 import AdminNavbar from "./components/admin/adminNavbar/AdminNavbar";
 import Orders from "./components/admin/orders/Orders";
+import ProductList from "./components/admin/productList/ProductList";
 import Navbar from "./components/navbar/Navbar";
+import Products from "./components/products/Products";
 import ShoppingCart from "./components/shoppingCart/ShoppingCart";
-import AdminScreen from "./screens/AdminScreen";
-import HomeScreen from "./screens/HomeScreen";
 
 function App() {
-  // const Layout = () => {
-  //   return (
-  //     <Navbar />
-  //   )
-  // }
   const router = createBrowserRouter([
     {
       path: "/",
       element: (
         <>
           <Navbar />
-          <HomeScreen />
+          <Products/>
         </>
       ),
 
@@ -41,7 +36,7 @@ function App() {
       element: (
         <>
           <AdminNavbar />
-          <AdminScreen />
+          <ProductList />
         </>
       ),
     },
@@ -65,7 +60,7 @@ function App() {
     }
   ]);
   return (
-    <div>
+    <div style={{overflowX: "hidden"}}>
       <RouterProvider router={router} />
     </div>
   );
