@@ -3,13 +3,19 @@ import './shoppingCart.scss'
 import { useSelector, useDispatch } from "react-redux"
 import { Link } from 'react-router-dom';
 import WestOutlinedIcon from '@mui/icons-material/WestOutlined';
-import { removeFromCart } from '../../features/cartSlice';
+import { addToCart, decreaseCart, removeFromCart } from '../../features/cartSlice';
 
 const ShoppingCart = () => {
     const cart = useSelector((state) => state.cart);
     const dispatch = useDispatch();
     const handleRemoveCart = (cartItem) => {
         dispatch(removeFromCart(cartItem));
+    }
+    const handleDecreaseCart = (cartItem) => {
+        dispatch(decreaseCart(cartItem))
+    }
+    const handleIncreaseCart = (cartItem) => {
+        dispatch(addToCart(cartItem))
     }
     return (
         <>
@@ -50,9 +56,9 @@ const ShoppingCart = () => {
                                             </div>
                                             <div className="productPrice">$ {cartItem.price}</div>
                                             <div className="cartQuantity">
-                                                <button>-</button>
+                                                <button onClick={()=> handleDecreaseCart(cartItem)}>-</button>
                                                 <div className="count">{cartItem.cartQuantity}</div>
-                                                <button>+</button>
+                                                <button onClick={()=> handleIncreaseCart(cartItem)}>+</button>
                                             </div>
                                             <div className="productTotalPrice">
                                                 $ {cartItem.price * cartItem.cartQuantity}
