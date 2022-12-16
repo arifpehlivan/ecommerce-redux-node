@@ -1,11 +1,16 @@
 import Navbar from '../navbar/Navbar'
 import './shoppingCart.scss'
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
 import { Link } from 'react-router-dom';
 import WestOutlinedIcon from '@mui/icons-material/WestOutlined';
+import { removeFromCart } from '../../features/cartSlice';
 
 const ShoppingCart = () => {
     const cart = useSelector((state) => state.cart);
+    const dispatch = useDispatch();
+    const handleRemoveCart = (cartItem) => {
+        dispatch(removeFromCart(cartItem));
+    }
     return (
         <>
             <Navbar />
@@ -40,7 +45,7 @@ const ShoppingCart = () => {
                                                 <div>
                                                     <h3>{cartItem.title}</h3>
                                                     <p>{cartItem.desc}</p>
-                                                    <button>Remove</button>
+                                                    <button onClick={()=> handleRemoveCart(cartItem)}>Remove</button>
                                                 </div>
                                             </div>
                                             <div className="productPrice">$ {cartItem.price}</div>
