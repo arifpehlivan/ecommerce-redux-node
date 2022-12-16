@@ -3,7 +3,7 @@ import './shoppingCart.scss'
 import { useSelector, useDispatch } from "react-redux"
 import { Link } from 'react-router-dom';
 import WestOutlinedIcon from '@mui/icons-material/WestOutlined';
-import { addToCart, decreaseCart, removeFromCart } from '../../features/cartSlice';
+import { addToCart, clearCart, decreaseCart, removeFromCart } from '../../features/cartSlice';
 
 const ShoppingCart = () => {
     const cart = useSelector((state) => state.cart);
@@ -16,6 +16,9 @@ const ShoppingCart = () => {
     }
     const handleIncreaseCart = (cartItem) => {
         dispatch(addToCart(cartItem))
+    }
+    const handleClearCart = () => {
+        dispatch(clearCart())
     }
     return (
         <>
@@ -68,7 +71,7 @@ const ShoppingCart = () => {
                                 }
                             </div>
                             <div className="cartSummary">
-                                <button className="clearCart">
+                                <button className="clearCart" onClick={()=>handleClearCart()}>
                                     Clear Cart
                                 </button>
                                 <div className="cartCheckout">
