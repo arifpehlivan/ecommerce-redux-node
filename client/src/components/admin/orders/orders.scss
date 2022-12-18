@@ -6,7 +6,7 @@
         margin: 20px 0 10px 20px;
         display: grid;
         align-items: center;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
         column-gap: 10px;
 
     }
@@ -14,7 +14,7 @@
         .orderItem{
             display: grid;
             align-items: center;
-            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
             column-gap: 10px;
             border-top: 1px solid lightgray;
             padding: 10px 0;

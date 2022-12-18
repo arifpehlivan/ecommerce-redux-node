@@ -4,6 +4,7 @@ import {
 } from "react-router-dom";
 import AddProduct from "./components/admin/addproduct/AddProduct";
 import AdminNavbar from "./components/admin/adminNavbar/AdminNavbar";
+import Map from "./components/admin/map/Map";
 import Orders from "./components/admin/orders/Orders";
 import ProductList from "./components/admin/productList/ProductList";
 import Navbar from "./components/navbar/Navbar";
@@ -55,6 +56,15 @@ function App() {
         <>
           <AdminNavbar />
           <Orders />
+        </>
+      ) ,
+    },
+    {
+      path: "/admin/map",
+      element: (
+        <>
+          <AdminNavbar />
+          <Map />
         </>
       ) ,
     }

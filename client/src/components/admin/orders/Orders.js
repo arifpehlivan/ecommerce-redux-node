@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import './orders.scss'
 
 const Orders = () => {
@@ -31,7 +32,10 @@ const Orders = () => {
                                             <p>{item.coordLat}, {item.coordLon}</p>
                                             <p>$ {item.orderItem[0].price}</p>
                                             <p>{order.status}</p>
-                                            <button>Show Map</button>
+                                            <Link to="/admin/map">
+                                                <button>Show Map</button>
+                                            </Link>
+                                            
                                         </div>
                                     )
 

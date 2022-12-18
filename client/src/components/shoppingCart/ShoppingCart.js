@@ -47,6 +47,7 @@ const ShoppingCart = () => {
         console.log("jsonData",jsonData);
         dispatch(getOrder(ordersData))
         alert("payed")
+        dispatch(clearCart())
     }
     console.log("order111111111111111111111111",order);
     return (
