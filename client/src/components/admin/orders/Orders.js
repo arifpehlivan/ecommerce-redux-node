@@ -4,11 +4,9 @@ import './orders.scss'
 
 const Orders = () => {
     const order = useSelector((state) => state.order);
-    console.log("order", order);
     return (
         <div className='orders'>
             <h1>Orders</h1>
-            {/*  */}
             {
                 order.orderItems?.length === 0 ? (
                     <div className="orderEmpty">
@@ -35,10 +33,8 @@ const Orders = () => {
                                             <Link to="/admin/map">
                                                 <button>Show Map</button>
                                             </Link>
-                                            
                                         </div>
                                     )
-
                                 })
                             }
                         </div>

@@ -4,7 +4,6 @@ import { applyPrice, deleteProduct, discountPrice } from '../../../features/prod
 import './productItem.scss'
 
 const ProductItem = ({ item }) => {
-    const product = useSelector((state) => state.items);
     const [discountShowInput,setDiscountShowInput] = useState(true);
     const [discountInput,setDiscountInput] = useState("");
     console.log("discountInput",discountInput)
@@ -19,7 +18,6 @@ const ProductItem = ({ item }) => {
     }
     const handleDiscountInput = (item) => {
         setDiscountInput(discountInput);
-        console.log("discountInput111111111",discountInput);
         setDiscountShowInput(!discountShowInput);
         dispatch(discountPrice(item));
         alert("Apply discount")
@@ -29,7 +27,6 @@ const ProductItem = ({ item }) => {
     }
     const handleInput = (e) => {
         setDiscountInput(e);
-        console.log("111111111111111111111111111",discountInput)
         dispatch(applyPrice(discountInput))
     }
     return (
@@ -50,7 +47,6 @@ const ProductItem = ({ item }) => {
                     className='discountInput' 
                     type="text" 
                     placeholder='Enter new price'
-                    // onChange={(e)=> setDiscountInput(e.target.value)}
                     onChange={(e)=> handleInput(e.target.value)}
                     />
                 )

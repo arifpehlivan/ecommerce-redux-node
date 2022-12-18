@@ -9,11 +9,8 @@ import {v4} from "uuid";
 
 const ShoppingCart = () => {
     const cart = useSelector((state) => state.cart);
-    const order = useSelector((state) => state.order);
     const [lat,setLat] = useState("");
     const [lon,setLon] = useState("");
-    console.log("order",order);
-    console.log("cart",cart)
     const dispatch = useDispatch();
     useEffect(()=>{
         dispatch(getTotals())
@@ -43,13 +40,10 @@ const ShoppingCart = () => {
         orderItem : cart.cartItems
     }
     const handleOrder = () => {
-        var jsonData = JSON.stringify(cart.cartItems);
-        console.log("jsonData",jsonData);
         dispatch(getOrder(ordersData))
         alert("payed")
         dispatch(clearCart())
     }
-    console.log("order111111111111111111111111",order);
     return (
             <div className='shoppingCart'>
                 <h4>Shopping Cart</h4>
