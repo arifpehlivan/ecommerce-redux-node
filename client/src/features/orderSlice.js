@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     orderItems: [],
     // localStorage.getItem("orders") ? JSON.parse(localStorage.getItem("orders")) :
-    status: null
+    status: "Pending"
 }
 
 const orderSlice = createSlice({

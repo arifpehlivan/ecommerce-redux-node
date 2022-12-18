@@ -17,7 +17,7 @@ const Orders = () => {
                     <div>
                         <div className="titles">
                             <h3 className="orderId">Order Id</h3>
-                            <h3 className="location">Location</h3>
+                            <h3 className="location">Location(Lat,Lon)</h3>
                             <h3 className="total">Total</h3>
                             <h3 className="status">Status</h3>
                             <h3 className="button">Action</h3>
@@ -28,9 +28,9 @@ const Orders = () => {
                                     return (
                                         <div className="orderItem" key={item.id}>
                                             <p>{item.id}</p>
-                                            <p>1222222</p>
-                                            <p>{item.orderItem[0].price}</p>
-                                            <p>Pending</p>
+                                            <p>{item.coordLat}, {item.coordLon}</p>
+                                            <p>$ {item.orderItem[0].price}</p>
+                                            <p>{order.status}</p>
                                             <button>Show Map</button>
                                         </div>
                                     )

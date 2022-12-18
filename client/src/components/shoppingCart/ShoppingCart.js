@@ -3,19 +3,27 @@ import { useSelector, useDispatch } from "react-redux"
 import { Link } from 'react-router-dom';
 import WestOutlinedIcon from '@mui/icons-material/WestOutlined';
 import { addToCart, clearCart, decreaseCart, getTotals, removeFromCart } from '../../features/cartSlice';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { getOrder } from '../../features/orderSlice';
 import {v4} from "uuid";
 
 const ShoppingCart = () => {
     const cart = useSelector((state) => state.cart);
     const order = useSelector((state) => state.order);
+    const [lat,setLat] = useState("");
+    const [lon,setLon] = useState("");
     console.log("order",order);
     console.log("cart",cart)
     const dispatch = useDispatch();
     useEffect(()=>{
         dispatch(getTotals())
-    },[cart,dispatch])
+    },[cart,dispatch]);
+    useEffect(()=>{
+        navigator.geolocation.getCurrentPosition((position)=>{
+            setLat(position.coords.latitude);
+            setLon(position.coords.longitude);
+        })
+    })
     const handleRemoveCart = (cartItem) => {
         dispatch(removeFromCart(cartItem));
     }
@@ -30,13 +38,14 @@ const ShoppingCart = () => {
     }
     const ordersData = {
         id: v4(),
+        coordLat: lat,
+        coordLon: lon,
         orderItem : cart.cartItems
     }
     const handleOrder = () => {
         var jsonData = JSON.stringify(cart.cartItems);
         console.log("jsonData",jsonData);
         dispatch(getOrder(ordersData))
-        // console.log("dispatch(getOrder(ordersData))",dispatch(getOrder(ordersData)))
         alert("payed")
     }
     console.log("order111111111111111111111111",order);
