@@ -10,7 +10,8 @@ const ProductItem = ({ item }) => {
     console.log("discountInput",discountInput)
     const dispatch = useDispatch();
     const handleDeleteProduct = (item) => {
-        dispatch(deleteProduct(item))
+        dispatch(deleteProduct(item));
+        alert("Deleted product");
     }
     const handleDiscount = () => {
         setDiscountShowInput(!discountShowInput);

@@ -10,7 +10,8 @@ import {v4} from "uuid";
 const ShoppingCart = () => {
     const cart = useSelector((state) => state.cart);
     const order = useSelector((state) => state.order);
-    console.log(order);
+    console.log("order",order);
+    console.log("cart",cart)
     const dispatch = useDispatch();
     useEffect(()=>{
         dispatch(getTotals())
@@ -32,8 +33,13 @@ const ShoppingCart = () => {
         orderItem : cart.cartItems
     }
     const handleOrder = () => {
+        var jsonData = JSON.stringify(cart.cartItems);
+        console.log("jsonData",jsonData);
         dispatch(getOrder(ordersData))
+        // console.log("dispatch(getOrder(ordersData))",dispatch(getOrder(ordersData)))
+        alert("payed")
     }
+    console.log("order111111111111111111111111",order);
     return (
             <div className='shoppingCart'>
                 <h4>Shopping Cart</h4>
@@ -90,7 +96,7 @@ const ShoppingCart = () => {
                                         <span>Subtotal </span>
                                         <span className="amount">${cart.cartAmount}</span>
                                     </div>
-                                    <button onClick={()=> handleOrder()}>Pay</button>
+                                    <button onClick={()=> handleOrder(cart)}>Pay</button>
                                     <div className="contunieShopping">
                                         <Link to="/">
                                             <WestOutlinedIcon/>

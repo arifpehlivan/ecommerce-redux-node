@@ -3,13 +3,13 @@ import './orders.scss'
 
 const Orders = () => {
     const order = useSelector((state) => state.order);
-    console.log("order",order);
+    console.log("order", order);
     return (
         <div className='orders'>
             <h1>Orders</h1>
-            {/* order.orderItems?.length */}
+            {/*  */}
             {
-                1 === 0 ? (
+                order.orderItems?.length === 0 ? (
                     <div className="orderEmpty">
                         <h1>Product not found.</h1>
                     </div>
@@ -23,36 +23,25 @@ const Orders = () => {
                             <h3 className="button">Action</h3>
                         </div>
                         <div className="orderItems">
-                            <div className="orderItem">
-                                <p>1231123</p>
-                                <p>121212</p>
-                                <p>1222222</p>
-                                <p>Pending</p>
-                                <button>Show Map</button>
-                            </div>
-                            <div className="orderItem">
-                                <p>1231123</p>
-                                <p>121212</p>
-                                <p>1222222</p>
-                                <p>Pending</p>
-                                <button>Show Map</button>
-                            </div>
-                            <div className="orderItem">
-                                <p>1231123</p>
-                                <p>121212</p>
-                                <p>1222222</p>
-                                <p>Pending</p>
-                                <button>Show Map</button>
-                            </div>
+                            {
+                                order.orderItems?.map(item => {
+                                    return (
+                                        <div className="orderItem" key={item.id}>
+                                            <p>{item.id}</p>
+                                            <p>1222222</p>
+                                            <p>{item.orderItem[0].price}</p>
+                                            <p>Pending</p>
+                                            <button>Show Map</button>
+                                        </div>
+                                    )
+
+                                })
+                            }
                         </div>
                     </div>
                 )
             }
-
-
-
         </div>
-
     )
 }
 
