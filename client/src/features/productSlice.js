@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     items: localStorage.getItem("items") ? JSON.parse(localStorage.getItem("items")) : [],
+    discountInput: 0
 }
 
 const productsSlice = createSlice({
@@ -24,11 +25,28 @@ const productsSlice = createSlice({
                 localStorage.setItem("items", JSON.stringify(state.items));
                 return state;
             });
+        },
+        applyPrice(state,action){
+            state.discountInput = action.payload;
+        },
+        discountPrice(state,action){
+            const itemIndex = state.items.findIndex(
+                (item) => item.id === action.payload.id
+            )
+            state.items[itemIndex].price = state.discountInput;
+            // state.items.map((item) => {
+            //     if (item.id === action.payload.id) {
+            //         item.price = state.items[itemIndex].discountInput;
+            //     }
+                
+            // })
+            localStorage.setItem("items", JSON.stringify(state.items));
+                return state;
         }
 
     }
 })
 
-export const { addProduct, deleteProduct } = productsSlice.actions;
+export const { addProduct, deleteProduct, discountPrice, applyPrice } = productsSlice.actions;
 
 export default productsSlice.reducer

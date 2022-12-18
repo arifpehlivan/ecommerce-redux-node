@@ -4,9 +4,13 @@ import { Link } from 'react-router-dom';
 import WestOutlinedIcon from '@mui/icons-material/WestOutlined';
 import { addToCart, clearCart, decreaseCart, getTotals, removeFromCart } from '../../features/cartSlice';
 import { useEffect } from 'react';
+import { getOrder } from '../../features/orderSlice';
+import {v4} from "uuid";
 
 const ShoppingCart = () => {
     const cart = useSelector((state) => state.cart);
+    const order = useSelector((state) => state.order);
+    console.log(order);
     const dispatch = useDispatch();
     useEffect(()=>{
         dispatch(getTotals())
@@ -23,9 +27,15 @@ const ShoppingCart = () => {
     const handleClearCart = () => {
         dispatch(clearCart())
     }
+    const ordersData = {
+        id: v4(),
+        orderItem : cart.cartItems
+    }
+    const handleOrder = () => {
+        dispatch(getOrder(ordersData))
+    }
     return (
             <div className='shoppingCart'>
-
                 <h4>Shopping Cart</h4>
                 {
                     cart.cartItems.length === 0 ? (
@@ -80,7 +90,7 @@ const ShoppingCart = () => {
                                         <span>Subtotal </span>
                                         <span className="amount">${cart.cartAmount}</span>
                                     </div>
-                                    <button>Pay</button>
+                                    <button onClick={()=> handleOrder()}>Pay</button>
                                     <div className="contunieShopping">
                                         <Link to="/">
                                             <WestOutlinedIcon/>

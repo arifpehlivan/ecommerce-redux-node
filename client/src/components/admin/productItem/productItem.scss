@@ -1,50 +1,110 @@
 .productItem{
-    display: flex;
-    flex-direction: row;
-    // background-color: beige;
-    padding: 50px;
-    width: 250px;
-    height: 350px;
-    border: 1px solid lightgray;
-    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+    // // background-color: beige;
+    // padding: 50px;
+    // width: 100%;
+    // height: 350px;
+    // border: 1px solid lightgray;
+    // border-radius: 10px;
+    border-top: 1px solid lightgray;
+    padding: 10px;
+    .productDetail{
+        display: flex;
+        flex-direction: column;
+    }
     .productItemTitle{
-        text-align: center;
+        // text-align: center;
     }
     .productItemImage{
         display: flex;
+        .titleDesc{
+            margin-left: 10px;
+            align-self: center;
+            .productItemTitle{
+                margin-bottom: 20px;
+            }
+        }
         img{
             width: 150px;
             height: 150px;
-            margin-left: auto;
-            margin-right: auto;
-            object-fit: fill;
-            margin-bottom: 15px;
+            border-radius: 5px;
+            // margin-left: auto;
+            // margin-right: auto;
+            // object-fit: fill;
+            // margin-bottom: 15px;
         }
     }
-    .productItemBottom{
+    
         
         .productItemButtons{
             
             button{
-                width: 100%;
-                padding: 10px;
-                margin: 10px 10px;
-                border: none;
-                background-color: rgb(0, 195, 255);
-                color: white;
-                border-radius: 5px;
-                cursor: pointer;
-                &:first-child{
-                    background-color: red;
-                }
+                // width: 100%;
+                // padding: 10px;
+                // margin: 10px 10px;
+                // border: none;
+                // background-color: rgb(0, 195, 255);
+                // color: white;
+                // border-radius: 5px;
+                // cursor: pointer;
+                // &:first-child{
+                //     background-color: red;
+                // }
             }
             
         }
         .productItemPrice{
-            font-size: 20px;
-            color: red;
-            margin: 5px;
-            text-align: center;
+            // font-size: 20px;
+            // color: red;
+            // margin: 5px;
+            align-items: center;
+            justify-content: center;
+            line-height: 150px;
         }
-    }
+        .productDelete{
+            align-items: center;
+            justify-content: center;
+            line-height: 150px;
+            button{
+                padding: 10px;
+                color: white;
+                background-color: red;
+                outline: none;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+        }
+
+        .productDiscount{
+            align-items: center;
+            justify-content: center;
+            line-height: 150px;
+            button{
+                padding: 10px;
+                color: white;
+                background-color: blue;
+                outline: none;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+        }
+        .discountInput{
+            height: 20px;
+            width: 150px;
+            margin-top: auto;
+            margin-bottom: auto;
+            outline: none;
+            border: none;
+            border-bottom: 1px solid lightgray;
+        }
+        .itemId{
+            align-items: center;
+            justify-content: center;
+            line-height: 150px;
+        }
+    
 }
